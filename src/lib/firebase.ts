@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBGNv9gNZRkl4FCGtDlAjQM30PpgC8cemA",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "lucid-hike.firebaseapp.com",
   projectId: "lucid-hike",
   storageBucket: "lucid-hike.firebasestorage.app",
