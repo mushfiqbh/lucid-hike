@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { blogImage } from "@/assets/assets";
+import { BlogImage } from "@/assets/assets";
 
 const Page = () => {
   return (
@@ -19,7 +19,7 @@ const Page = () => {
             allocation, and adopting sustainable practices.
           </p>
           <Image
-            src={blogImage}
+            src={BlogImage}
             alt="Orange on tree"
             width={600}
             height={400}
