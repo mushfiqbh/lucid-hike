@@ -1,6 +1,19 @@
 import { Dispatch, SetStateAction } from "react";
 import { User } from "./types";
 
+export interface Handles {
+  name: string;
+  cf: string;
+  lc: string;
+  cc: string;
+  hr: string;
+}
+
+export interface CPHikeContextState {
+  handles: Handles;
+  setHandles: Dispatch<SetStateAction<Handles>>;
+}
+
 export interface AuthContextState {
   authUser: User | null;
   setAuthUser: Dispatch<SetStateAction<User | null>>;
@@ -15,6 +28,9 @@ export interface User {
   displayName: string | null;
   photoURL: string | null;
   role: "follower" | "author" | "admin";
+  handles?: {
+    cf: string;
+  };
   phoneNumber?: string;
   wishlist?: string[];
   createdAt?: Date;
@@ -50,4 +66,55 @@ export interface Comment {
   updatedAt?: Date;
   parentId?: string;
   isDeleted?: boolean;
+}
+
+export interface Problem {
+  name: string;
+  index: string;
+}
+
+export interface Submission {
+  id: number;
+  contestId: number;
+  verdict: string;
+  problem: Problem;
+  creationTimeSeconds: number;
+}
+
+interface CodechefUserData {
+  success: boolean;
+  status: number;
+  profile: string;
+  name: string;
+  currentRating: number;
+  highestRating: number;
+  countryFlag: string;
+  countryName: string;
+  globalRank: number;
+  countryRank: number;
+  stars: string;
+}
+
+interface LeetCodeUserProfile {
+  username: string;
+  profile: {
+    realName: string;
+    websites: string[];
+    countryName: string;
+    company: string;
+    school: string;
+    aboutMe: string;
+    reputation: number;
+    ranking: number;
+  };
+  submitStats: {
+    acSubmissionNum: SubmissionStats[];
+    totalSubmissionNum: SubmissionStats[];
+  };
+}
+
+interface SubmissionStats {
+  difficulty: "All" | "Easy" | "Medium" | "Hard";
+  count: number;
+  submissions: number;
 }
